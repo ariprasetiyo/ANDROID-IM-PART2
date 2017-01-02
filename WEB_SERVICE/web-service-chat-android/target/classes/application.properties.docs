@@ -1,0 +1,7 @@
+/*
+generate user and password 
+spring.datasource.username=pelatihanuser
+spring.datasource.password=pelatihanpassword
+
+Query : grant all on pelatihan.* to pelatihanuser@localhost identified by 'pelatihanpassword'
+*/

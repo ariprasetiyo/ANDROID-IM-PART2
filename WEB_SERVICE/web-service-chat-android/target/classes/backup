@@ -1,0 +1,93 @@
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.ServletContextInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+
+//@Configuration => agar ini terbaca oleh spring
+//http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc-form
+@EnableWebSecurity
+@Configuration
+
+public class ConfigurationSecurity extends WebSecurityConfigurerAdapter {
+
+    //for configure user and password login
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        /*
+        auth
+                .jdbcAuthentication()
+                .dataSource(dS)
+                .usersByUsernameQuery(sqlLogin)
+                .authoritiesByUsernameQuery(sqlRole);
+         */
+
+        //for using apps connect
+        auth
+                .inMemoryAuthentication()
+                .withUser("ari").password("ari").roles("ADMIN")
+                .and()
+                .withUser("ira").password("ira").roles("USER");
+    }
+
+    //for configure permission of page
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http    
+                .authorizeRequests()
+                .antMatchers("/api/*").hasAnyRole("ADMIN")
+                .antMatchers("/login").hasAnyRole("ADMIN")
+                .anyRequest().authenticated()
+                
+                .and()
+                .formLogin()
+                .and()
+                .logout()
+                .and()
+                .addFilterAfter(new configurationCrsfFilter(), CsrfFilter.class)
+                .csrf().csrfTokenRepository(csrfToken());
+        http
+                .authorizeRequests()
+                .antMatchers("/api/*").hasAnyRole("USER")
+                .antMatchers("/login").hasAnyRole("USER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .logout()
+                .and()
+                .csrf().disable();
+
+    }
+
+    private CsrfTokenRepository csrfToken() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
+    }
+
+    /*
+    @Bean
+    public ServletContextInitializer servletContextInitializer() {
+        return new ServletContextInitializer() {
+
+            @Override
+            public void onStartup(ServletContext servletContext) throws ServletException {
+                servletContext.getSessionCookieConfig().setName("test");
+                servletContext.getSessionCookieConfig().setHttpOnly(false);
+                servletContext.getSessionCookieConfig().setSecure(false);
+                servletContext.getSessionCookieConfig().setPath("/login");
+            }
+        };
+
+    } */
+}
+

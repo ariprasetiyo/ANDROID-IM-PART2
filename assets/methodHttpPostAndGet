@@ -1,0 +1,76 @@
+
+    List<NameValuePair> params = new ArrayList<NameValuePair>();
+    Map<String, String> mapn;
+    DefaultHttpClient httpClient;
+    HttpPost httpPost;
+    static InputStream is = null;
+    static JSONObject jObj = null;
+    static String json = "";
+
+    public JSONObject gettoken() {
+        // Making HTTP request
+        try {
+            String username = "ari";
+            String password = "ari";
+            String grant_type = "password";
+            String scope = "read";
+            //String url = "http://10.0.2.2:8080/oauth/token";
+            String withClient = "clientapp";
+            String secret = "123456";
+            String authentication = withClient+ ":" + secret;
+            String url = "http://"+authentication+"@192.168.10.187:8080/oauth/token";
+
+            // DefaultHttpClient
+            httpClient = new DefaultHttpClient();
+            httpPost = new HttpPost(url);
+
+            //params.add(new BasicNameValuePair("code", token));
+            params.add(new BasicNameValuePair("client_id", withClient));
+            params.add(new BasicNameValuePair("client_secret", secret));
+
+            params.add(new BasicNameValuePair("grant_type", grant_type));
+            params.add(new BasicNameValuePair("scope", scope));
+            params.add(new BasicNameValuePair("username", username));
+            params.add(new BasicNameValuePair("password", password));
+
+            httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpPost.setEntity(new UrlEncodedFormEntity(params));
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+            HttpEntity httpEntity = httpResponse.getEntity();
+            is = httpEntity.getContent();
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    is, "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "n");
+                System.out.println(sb);
+            }
+            is.close();
+
+            json = sb.toString();
+            Log.e("JSONStr", json);
+        } catch (Exception e) {
+            e.getMessage();
+            Log.e("Buffer Error", "Error converting result " + e.toString());
+        }
+        // Parse the String to a JSON Object
+        try {
+            jObj = new JSONObject(json);
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        // Return JSON String
+        return jObj;
+    }
+
+

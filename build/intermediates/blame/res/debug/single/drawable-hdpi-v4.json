@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/greenstar.png",
+        "source": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/greenstar.png"
+    },
+    {
+        "merged": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/greenstar.png",
+        "source": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/greenstar.png"
+    },
+    {
+        "merged": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/stat_sample.png",
+        "source": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/stat_sample.png"
+    },
+    {
+        "merged": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/stat_sample.png",
+        "source": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/stat_sample.png"
+    },
+    {
+        "merged": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/redstar.png",
+        "source": "/media/bsp-it-01/ILMU/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/redstar.png"
+    },
+    {
+        "merged": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/build/intermediates/res/merged/debug/drawable-hdpi-v4/redstar.png",
+        "source": "/media/ari-prasetiyo/ae9fa562-7875-470a-a44a-18829c16dc0f/PROJECT/ANDROID PROJECT/AndroidIM/res/drawable-hdpi/redstar.png"
+    }
+]
